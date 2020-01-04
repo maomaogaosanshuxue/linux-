@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# installation configuration
+NGINX_VERSION=1.12.2
+NGINX_SRC_PATH=/root
+NGINX_BIN_PATH=/usr/local/nginx
+
+# disable firewall
+systemctl stop firewalld
+setenforce 0
+
+# installation dependence
+yum install -y pcre-devel zlib-devel openssl-devel wget gcc
+
+# download nginx source package
+cd ${NGINX_SRC_PATH}
+wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+
+# unzip source package
+tar -xzvf nginx-${NGINX_VERSION}.tar.gz
+cd ./nginx-${NGINX_VERSION}
+
+# install nginx
+./configure --prefix=${NGINX_BIN_PATH} --with-http_ssl_module
+make & make install
+
+# start nginx service
+cd ${NGINX_BIN_PATH}/sbin
+./nginx
+
+# END
