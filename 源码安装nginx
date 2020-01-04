@@ -1,5 +1,5 @@
-关闭防火
-墙setenforce 0
+关闭防火墙
+setenforce 0
 systemctl stop firewalld
 systemctl disable firewalld
 安装nginx依赖库
@@ -41,4 +41,4 @@ image
 /usr/local/nginx/sbin/nginx -s quit
 
 3.杀死Nginx进程
-killall nginx
+kill  nginx
