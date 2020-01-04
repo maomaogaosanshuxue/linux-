@@ -1,0 +1,22 @@
+SELinux(Security-Enhanced Linux) 是美国国家安全局（NSA）对于强制访问控制的实现，是 Linux历史上最杰出的新安全子系统。
+命令临时生效：
+setenforce 0 (临时生效可以直接用setenforce 0 )
+            1 启用
+            0 告警，不启用
+
+
+永久生效：           
+            操作前先备份
+  cp /etc/selinux/config /etc/selinux/config.bak
+  cat /etc/selinux/config
+#     SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+ 
+# 更改setlinux级别
+sed -i 's/SELINUX=enforcing/\SELINUX=permissive/' /etc/selinux/config
+     ==> vim /etc/selinux/config/  --> SELINUX=enforcing[效果同上]
+  # SELINUX参数enforcing代表打开，disabled代表关闭
+# 查看selinux状态：
+   getenforce
