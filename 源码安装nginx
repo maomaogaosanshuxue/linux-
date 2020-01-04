@@ -1,0 +1,44 @@
+关闭防火
+墙setenforce 0
+systemctl stop firewalld
+systemctl disable firewalld
+安装nginx依赖库
+yum -y install gcc pcre pcre-devel zlib zlib-devel openssl openssl-devel
+
+进入nginx官网下载nginx的稳定版本 官网（http://nginx.org/en/download.html）cd /usr/local/src
+mkdir nginx（安装在usr/local/nginx）
+#http://nginx.org/download/nginx-1.16.1.tar.gz
+
+j解压 tar -zxvf nginx-1.10.0.tar.gz
+1222343-20180728171338485-1621387888
+
+我这里只配置安装到/nginx目录下 用./configure
+
+1 | ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_stub_status_module --with-stream=dynamic （需要什么安装什么模块）
+
+编译并安装
+make && make install
+1222343-20180728171350553-1834504383
+
+启动服务
+[root@nginx ～]# /usr/local/nginx/sbin/nginx //或者./sbin/nginx
+查看Nginx进程是否启动
+ps aux | grep nginx
+image
+1222343-20180728171402687-2033671889
+[root@nginx ～]# /usr/local/nginx/sbin/nginx -V #查看版本信息
+
+查看Nginx占用的端口号
+1222343-20180728171409197-448215442
+
+停止nginx
+停止Nginx的三种方式
+
+1. 立即停止Nginx服务
+/usr/local/nginx/sbin/nginx -s stop
+
+2.完成当前任务后停止
+/usr/local/nginx/sbin/nginx -s quit
+
+3.杀死Nginx进程
+killall nginx
