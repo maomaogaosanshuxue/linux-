@@ -1,0 +1,23 @@
+基本命令cd
+作用：切换目录
+root@iZj6cdnt5l0dq9tqz397hhZ ~]# cd /etc/sysconfig/ #进入sysconfig 目录
+[root@iZj6cdnt5l0dq9tqz397hhZ sysconfig]# cd 家目录
+[root@iZj6cdnt5l0 dq9tqz397hhZ ~]# cd ~ 家目录
+
+pwd    #命令用于显示工作目录
+cd .. 返回上级目录
+cd .  当前目录
+cd - #返回切换之前目录
+cd  /  #根目录
+
+history 快速查找历史命令
+ 
+ 快速查找linux历史命令的技巧
+ 
+ ctrl +r  !数字    或者 ！字符  或者！命令
+
+ctrl  +c   终止前台运行的程序
+
+exit  退出
+
+clear  清屏
