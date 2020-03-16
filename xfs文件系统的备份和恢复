@@ -1,0 +1,24 @@
+0  完全备份
+1-9 增量备份
+1.虚拟机外面添加一块硬盘
+2.对新添加的磁盘进行格式化
+使用新的分区。格式化分区，并进行挂载
+mkfs.xfs /dev/sdb1 格式化
+mkdir wo
+ mount /dev/sdb1 /wo/挂载
+ 
+ cp /etc/passwd ./(wo)
+ mkdir test 
+ touch test/a
+备份
+1 备份整个分区
+
+xfsdump -f 备份存放位置 要备份路径
+xfsdump -f /opt/dunmp-ss /wo
+dumnp-ss 
+wo
+
+注意：备份的路径设这里不能写成/wo/
+
+xfsdump -f /opt/dump_passwd /sdb1 -L dump_passwd -M /sdb1
+2.指定备份时免交互操作，方便后期做定时备份
