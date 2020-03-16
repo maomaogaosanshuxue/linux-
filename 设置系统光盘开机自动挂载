@@ -1,0 +1,35 @@
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# vim /etc/fstab  #在文档最后，添加以下内容：
+/dev/cdrom                      /mnt                     iso9660 defaults     0 0
+
+验证是否挂载  umount  是卸载   mount挂载
+
+删除yum源
+rm -rf /etc/yum.repos.d    
+创建一个新的yum源配置文件，yum源配置结尾必须是repos.d
+配置本地yum源
+ yum 的一切配置信息都储存在一个叫yum.reposd目录下
+ 
+[root@iZj6cdnt5l0dq9tqz397hhZ yum.repos.d]# ls
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo  epel.repo
+CentOS-CR.repo    CentOS-fasttrack.repo  CentOS-Sources.repo  docker-ce.repo     zabbix.repo
+
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# cat Centos7.repo 
+[Centos7]    ------------>YUM 的ID  唯一
+
+name=CentOS-server    ----------》描述信息
+
+baseur=file://mnt -----------》 /mnt 表示的是光盘的挂载点 .file：后面有3个///
+
+enabled=1           ----》启用
+
+gpgcheck=0 ------------>取消验证
+
+
+yum clean  all #清空yum的缓存
+yum  list     #生成缓存  
+
+验证一下
+ yum -y  install httpd   #yum  install 安装 
+
+
+
