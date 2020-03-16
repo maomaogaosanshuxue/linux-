@@ -1,0 +1,86 @@
+用户分类
+超级用户 root
+普通用户：系统用户 UID：1-999
+虚拟用户：ftp nginx
+11.2配置文件
+用户配置文件 /etc/passwd  记录每个用户的一些基本信息
+用户组文件/etc/group 用户组的所有信息存放地
+用户对应的密码信息/etc/shadow 密码的地方
+
+11.3用户管理
+用户命令
+useradd
+useradd -m -u "UID" -g"初始组" -G "附加组" -s "登陆shell " 用户
+-d：用户目录路径 ，可以指定用户家目录
+-M 不创建用户的主目录
+-g :设置用户初始组的名称或数字id 该组必须存在
+-G: 用户要加入的附加组
+-s 用户默认登录shell的路径 默认是bash 列如用来执行系统服务的用户将shell设置成/sbin/nologin 可以禁止用户登录
+
+11.4添加登录用户
+添加一个名为jj的用户，并使用bash作为登录的shell  （创建jj的时候随手创建一个组）
+（[root@iZj6cdnt5l0dq9tqz397hhZ ~]# tail -1 /etc/group #组
+jj:x:1001:）
+
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# tail -1 /etc/passwd 查看最后一行 
+jj:x:1000:1001::/home/jj:/bin/bash 用户
+
+列如 root:x:0:0::/root/jj:/bin/bash 每个字段的作用
+root 用户名 x密码占位符 0 UID 0 GID root 用户描述 bin/bash：用户主目录 登录后使用的shell
+
+#查看系统中有几个shell
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# cat /etc/shells 
+/bin/sh
+/bin/bash
+/usr/bin/sh
+/usr/bin/bash
+
+11.5 指定用户UID:-u 用户id
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# useradd -u 1100 oracle
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# id 1100
+uid=1100(oracle) gid=1100(oracle) groups=1100(oracle)
+
+11.6指定用户的家目录
+root@iZj6cdnt5l0dq9tqz397hhZ ~]# useradd -d /opt/mk1 mk2
+
+指定用户的主组
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# useradd -g xuegod xuegod2
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# id xuegod2
+uid=1103(xuegod2) gid=1102(xuegod) groups=1102(xuegod)
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# 
+root@iZj6cdnt5l0dq9tqz397hhZ ~]# tail -1 /etc/group
+xuegod:x:1102:
+
+删除用户 userdel
+-r 删除的时候 ，会同时删除用户家目录和/var/mail下的目录
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
