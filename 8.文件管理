@@ -1,0 +1,52 @@
+创建/修改/移动/删除:touch  mkdir  mv vi  rm  cp
+
+atime 访问时间   修改时间  mtime 改变时间 ctime
+
+
+touch  创建文件  -d 指定时间
+
+mkdir  创建目录 
+-p 如果文件存在,不报错 如果文件不存在,创建文件 补充[可以递归创建文件夹 例如 test/test]
+-v 为每个创建的目录打印一条消息 例如 mkdir -v test 则会显示 已创建目录’test’
+–version 显示版本信息并退出
+mkdir -p test/test 在当前目录下创建 test 文件夹 并在 新创建的test文件夹下再创建一个test文件夹
+mkdir -m 777 test 在当前文件夹下创建test文件夹,并设置文件夹的权限为 777
+mkdir -v test 在当前的文件夹下创建test文件夹,系统会回复 “已创建目录’test’”
+
+mv 移动
+-b ：若需覆盖文件，则覆盖前先行备份。
+-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；
+-i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！
+-u ：若目标文件已经存在，且 source 比较新，才会更新(update)
+-t ： --target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY，即指定mv的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后
+
+rm  删除
+rm 和rmdir
+rmdir可以删除空文件。
+rm可以删除文件和文件夹，但是文件夹不能为空。
+
+-f 强制删除 没有提示
+-r 删除目录
+
+
+
+cp 复制文件
+cp 源文件/目录 目录文件/目录
+
+-R/r：递归复制，用于复制目录 复制目录
+-d 复制软连接
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
