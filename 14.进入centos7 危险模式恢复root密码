@@ -1,0 +1,12 @@
+首先重启 按装e建编辑
+找到ro_rhgb quiet  LANG=zh_CN.UTF-8
+修改rw init=/sysroot/bin/sh_rhgb  quiet  LANG=zh_CN.UTF-8
+按下ctry +x 进入危险模式
+
+/#chroot /sysroot
+/#passwd 123456
+12356
+
+exit
+reboot
+
