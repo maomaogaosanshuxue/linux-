@@ -1,0 +1,36 @@
+13.1修改用户信息
+
+常用参数
+-u  UID
+-d  宿主目录
+-g  起始组    #只能只有一个
+-G  附加组      #可以有多个
+-s  登录shell
+-L  锁定
+
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# useradd -u 1111 oracls
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# id 1111
+uid=1111(oracls) gid=1111(oracls) groups=1111(oracls)
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# usermod  -u 1211 oracls 修改
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# id oracls
+uid=1211(oracls) gid=1111(oracls) groups=1111(oracls)
+
+修改shell
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# usermod -s /sbin/nologin oracle
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# grep oracle /etc/passwd
+oracle:x:1100:1100::/home/oracle:/sbin/nologin
+
+更改用户主目录
+-m 选项会自动创建新目录并且转移到新的目录里面
+
+
+13[root@iZj6cdnt5l0dq9tqz397hhZ ~]# rm -rf /home/xuegod/.bash*
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# su - xuegod
+Last login: Mon Mar 16 16:08:35 CST 2020 on pts/2
+-bash-4.2$ exit
+logout
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# cp /etc/skel/.bash* /home/xuegod
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# chown xuegod:xuegod /home/xuegod/.bash*
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# su xuegod
+.2
+
