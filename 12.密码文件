@@ -1,0 +1,4 @@
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# head -3 /etc/shadow
+root:$6$RwVAJ/4i9$1uP3biKwE1Hvk04TVev27IfjOcGZzM5Ck0H4i6QFAOSXL0XtWz7zKrr9trmXDLEJHNUnCIepEnl7kFiy06c70.:18337:0:99999:7:::
+bin:*:17834:0:99999:7:::
+daemon:*:17834:0:99999:7:::
