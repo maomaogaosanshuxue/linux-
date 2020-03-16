@@ -1,0 +1,65 @@
+shutdown  +10 #执行此命令后，系统10分钟关机
+shutdown  -c  #取消关机
+
+.  当前目录  ..上级目录
+-------ls  #查看当前目录下有哪些文件
+ -l  #列出文件的详细信息  时间  文件的读写权限 和 ll  是同样的效果 
+ -a  # 隐藏文件
+ -d  #查看目录
+ -s  以文件的大小进行排序
+[root@iZj6cdnt5l0dq9tqz397hhZ ~]# ls -l
+total 7512
+-rwxr-xr-x 1 root root     136 Mar 12 10:57 in.sh
+-rw-r--r-- 1 root root 7682693 Feb 28 01:42 openvswitch-2.11.1.tar.gz
+drwxr-xr-x 2 root root    4096 Mar 12 12:02 wo
+
+
+//
+d  # 文件类型  rwxr-xr-x #文件的权限 2 #连接的个数  root #文件的所有者  root# 用户所属组名
+
+4096 #文件大小   Mar 12 12:02 日期时间    wo #文件的名称 
+
+第一个字符文件类型：    
+d #目录文件
+l #连接文件
+b #设备文件
+c #字符设备文件
+p #管道文件
+- #普通文件
+
+linux系统中不同的颜色代表不同的文件类型
+蓝色      #目录
+黑色      # 文件
+浅蓝色    # 连接
+红色      #压缩包
+绿色      #可执行文件
+黑底黄字   #设备文件
+
+
+#边名的使用 alias 创建
+定义个边名
+#alias  zuixin='vim /etc/passwd'
+#zuixin  #使用zuixin 可以打开vim /etc/passwd 
+unalias  删除边名
+#unalias  zuixin
+
+设置边名永久生效
+
+vim /root/.basr  文件加入这个  alias  zuixin='vim /etc/passwd'
+alias  zuixin='vim /etc/passwd'
+
+#source /root/.bashrc
+
+
+source 当我修改了/etc/profile文件，我想让它立刻生效，而不用重新登录；这时就想到用source命令，如:source /etc/profile
+对source进行了学习，
+
+
+
+
+
+
+
+
+
+
